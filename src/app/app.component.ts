@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
-import {
-  appService
-} from './app.service';
+import { AppService } from './app.service';
+
 
 @Component({
   selector: 'my-app',
-  template: `
-  <div>
-    <button (click)="loadUser()">Load profile</button>
-    {{ profile | json }}
-  </div>
-  `
+  providers: [AppService],
+  templateUrl: './app.component.html'
+  
 })
-export class HomeComponent {
-  constructor(private appService: appService) {}
-  profile = {};
-
-  loadUser() {
-    this.appService.getUser().subscribe(data => this.profile = data);
-  }
+export class AppComponent {
+ 
+    
+   
 }
